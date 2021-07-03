@@ -1,0 +1,2 @@
+jdk = com.afan.rpc.serialize.jdk.JdkSerializer
+json = com.afan.rpc.serialize.json.GsonSerializer

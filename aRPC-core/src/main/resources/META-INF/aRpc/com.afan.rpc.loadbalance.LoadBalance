@@ -1,0 +1,1 @@
+randomLoadBalance = com.afan.rpc.loadbalance.loadbalancer.RandomLoadBalance
