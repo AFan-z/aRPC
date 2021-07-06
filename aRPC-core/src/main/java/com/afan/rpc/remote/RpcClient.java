@@ -57,7 +57,7 @@ public class RpcClient {
 
     public Object sendRequestMsg(RpcRequest msg) throws InterruptedException {
         //从注册中心获取服务 ip
-        InetSocketAddress inetSocketAddress = serviceDiscovery.discoveryService(RpcServiceUtil.PROVIDE_PREFIX + msg.getInterfaceName());
+        InetSocketAddress inetSocketAddress = serviceDiscovery.discoveryService(RpcServiceUtil.PROVIDE_PREFIX + msg.getInterfaceName(), msg);
 
         // 1. 将消息对象发送出去
         getChannel(inetSocketAddress).writeAndFlush(msg);

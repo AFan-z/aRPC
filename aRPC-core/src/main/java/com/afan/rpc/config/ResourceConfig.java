@@ -58,7 +58,7 @@ public abstract class ResourceConfig {
         }
 
         if (loadBalance == null || "".equals(loadBalance)) {
-            LOAD_BALANCE_TYPE = "randomLoadBalance";
+            LOAD_BALANCE_TYPE = "consistentHash";
         }else {
             LOAD_BALANCE_TYPE = loadBalance.trim();
         }

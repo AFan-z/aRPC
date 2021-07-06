@@ -1,1 +1,3 @@
-randomLoadBalance = com.afan.rpc.loadbalance.loadbalancer.RandomLoadBalance
+randomLoad = com.afan.rpc.loadbalance.loadbalancer.RandomLoadBalance
+roundRobin = com.afan.rpc.loadbalance.loadbalancer.RoundRobinBalance
+consistentHash = com.afan.rpc.loadbalance.loadbalancer.ConsistentHashLoadBalance

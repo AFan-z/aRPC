@@ -4,6 +4,7 @@ import com.afan.rpc.loadbalance.LoadBalance;
 import com.afan.rpc.loadbalance.loadbalancer.RandomLoadBalance;
 import com.afan.rpc.registry.ServiceDiscovery;
 import com.afan.rpc.registry.nacos.util.NacosUtils;
+import com.afan.rpc.remote.protocol.RpcRequest;
 import com.alibaba.nacos.api.naming.pojo.Instance;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -29,7 +30,7 @@ public class NacosServiceDiscovery implements ServiceDiscovery {
 
     @SneakyThrows
     @Override
-    public InetSocketAddress discoveryService(String serviceName) {
+    public InetSocketAddress discoveryService(String serviceName, RpcRequest request) {
         List<Instance> instanceList = NacosUtils.getAllInstance(serviceName);
         if (instanceList.size() == 0 || instanceList == null) {
             throw new RuntimeException("找不到对应服务");
@@ -41,7 +42,7 @@ public class NacosServiceDiscovery implements ServiceDiscovery {
             serviceAddresses.add(next.getIp() + ":" + next.getPort());
         }
 
-        String select = loadBalancer.select(serviceAddresses, null);
+        String select = loadBalancer.select(serviceAddresses, request);
         log.debug("serviceAddresses: {}", select);
 
         String[] split = select.split(":");

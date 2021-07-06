@@ -1,5 +1,6 @@
-package com.afan.rpc.loadbalance;
+package com.afan.rpc.loadbalance.loadbalancer;
 
+import com.afan.rpc.loadbalance.LoadBalance;
 import com.afan.rpc.remote.protocol.RpcRequest;
 
 import java.util.List;

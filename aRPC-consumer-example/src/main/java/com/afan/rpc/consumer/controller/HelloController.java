@@ -15,7 +15,7 @@ public class HelloController {
     HelloService helloService;
 
     public String test(String user) {
-        System.out.println(helloService.sayHello("广州"));
+        System.out.println(helloService.sayHello("guangzhou"));
         return user + " say hello";
     }
 

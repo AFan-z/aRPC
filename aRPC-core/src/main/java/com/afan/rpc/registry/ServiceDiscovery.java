@@ -1,5 +1,7 @@
 package com.afan.rpc.registry;
 
+import com.afan.rpc.remote.protocol.RpcRequest;
+
 import java.net.InetSocketAddress;
 
 /**
@@ -13,5 +15,5 @@ public interface ServiceDiscovery {
      * @param serviceName
      * @return
      */
-    InetSocketAddress discoveryService(String serviceName);
+    InetSocketAddress discoveryService(String serviceName, RpcRequest request);
 }
